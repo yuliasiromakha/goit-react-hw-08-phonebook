@@ -1,0 +1,51 @@
+/* ------------------------- HEADER ------------------------- */
+.header__nav {
+    display: flex;
+    flex-direction: row;
+    background-color: lavender;
+    border-bottom: 2px solid purple;
+}
+
+.header__nav-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.header__nav-item:not(:last-child) {
+    margin-right: 30px;
+}
+
+/* -------------------------  REGISTRATION PAGE ------------------------- */
+
+.registration__form {
+    margin-left: 40px;
+    width: 300px;
+}
+
+.title, .button {
+    margin-left: 40px;
+}
+
+
+/*  ------------------------- GENERAL ------------------------- */
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+/* 
+.submit__button {
+    margin-top: 20px;
+} */
+
+.link__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.label {
+    margin-bottom: 5px;
+}
