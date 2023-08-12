@@ -9,13 +9,15 @@ const HomePage = () => {
             <p style={{marginLeft: 40, fontSize: 20}}>Please sign up or log in to look through your contacts:</p>
             
             <div className="link__buttons">
-            <Link to="/login" className="button">
-            <Button color="neutral">Go to the login page</Button>
-            </Link>
 
             <Link to="/registration" className="button">
             <Button color="neutral">Go to the registration page</Button>
             </Link>
+
+            <Link to="/login" className="button">
+            <Button color="neutral">Go to the login page</Button>
+            </Link>
+            
             </div>
 
         </div>
