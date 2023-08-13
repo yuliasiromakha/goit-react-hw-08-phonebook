@@ -4,7 +4,7 @@ const instance = axios.create({
     baseURL: 'https://connections-api.herokuapp.com/',
 })
 
-export const signUp =  (body) => {
+export const signUp = (body) => {
     return  instance.post('users/signup', body)
 }
 

@@ -23,8 +23,8 @@ const Registration = () => {
         .then(() => {
             console.log("account created")
             Notiflix.Report.success("Success!", "Your account was successfully created!", "Okay!")
-            navigate("/login")}
-        )
+            navigate("/login")
+        })
         .catch((error) => {
             console.log("Error details:", error);
             Notiflix.Report.failure("Oops!", "An error occurred! Please check all of the registration requirements", "Okay!")

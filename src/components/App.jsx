@@ -7,8 +7,6 @@ export const App = () => {
   const Home = lazy(() => import('./pages/Home'));
   const Login = lazy(() => import('./pages/Login'));
   const Registration = lazy(() => import('./pages/Registration'));
-  // const Loader = lazy(() => import('./pages/Loader'))
-  // const NotFound = lazy(() => import('./pages/NotFound'));
 
   return (
     <div className="header">

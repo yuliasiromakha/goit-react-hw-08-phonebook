@@ -3,6 +3,7 @@ import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 import storage from "redux-persist/lib/storage";
 import contactReducer from "./contacts/contactSlice";
 import filterReducer from './contacts/filterSlice'
+import { authReducer } from "./auth/slice";
 
 const persistConfig = {
   key: "root",
@@ -13,6 +14,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   contacts: persistReducer(persistConfig, contactReducer),
   filter: filterReducer,
+  auth: authReducer
 });
 
 const store = configureStore({
