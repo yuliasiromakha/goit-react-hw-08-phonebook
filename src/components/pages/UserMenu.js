@@ -1,6 +1,5 @@
 import { deleteToken } from "components/redux/auth/operations";
-// import { logOut } from "components/redux/auth/slice";
-import { getProfileThunk } from "components/redux/auth/thunk";
+import { getProfileThunk, logOutThunk } from "components/redux/auth/thunk";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -17,11 +16,12 @@ const UserMenu = () => {
     }
 
     const handleLogout = () => { 
-        // dispatch(logOut());
         deleteToken();
-        console.log(token);
-    }
-
+        dispatch(logOutThunk());
+        navigate('/login')
+    };
+    
+    
     useEffect(() => {
       token && dispatch(getProfileThunk())
     }, [token, dispatch] )

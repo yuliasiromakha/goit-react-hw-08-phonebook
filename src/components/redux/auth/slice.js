@@ -30,33 +30,28 @@ const handleFulfilledProfile = (state, { payload }) => {
   state.profile = payload;
 };
 
-const handleFulfilledLogout = (state, {payload}) => { 
+const handleFulfilledLogout = (state) => { 
   state.isLoading = false;
   state.error = '';
   state.token = '';
   state.user = null;
- }
+
+  console.log(state.token);
+};
+
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    // logOut(state){
-    //   state.profile = null
-    //   state.access_token = ''
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
-    // .addCase(loginThunk.pending, handlePending)
     .addCase(loginThunk.fulfilled, handleFulfilled)
     .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
     .addCase(logOutThunk.fulfilled, handleFulfilledLogout)
     .addMatcher(isAnyOf(loginThunk.pending, getProfileThunk.pending), handlePending)
-    // .addCase(loginThunk.rejected, handleRejected)
     .addMatcher(isAnyOf(loginThunk.rejected, getProfileThunk.rejected), handleRejected)
   },
 })
 
 export const authReducer = authSlice.reducer
-// export const {logOut} = authSlice.actions

@@ -8,8 +8,8 @@ const setToken = (token) => {
     instance.defaults.headers.common['Authorization'] = token
 }
 
-export const deleteToken = (token) => { 
-    delete instance.defaults.headers.common['Authorization'] 
+export const deleteToken = () => { 
+    delete instance.defaults.headers.common['Authorization'];
 }
 
 export const signUp = async (body) => {
