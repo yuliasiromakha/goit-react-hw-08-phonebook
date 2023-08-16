@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../general.css'
-// import { logIn } from "components/redux/auth/operations";
 import Notiflix from 'notiflix';
 import { loginThunk } from "components/redux/auth/thunk";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+// import { getProfileThunk } from "components/redux/auth/thunk";
 
 const Login = () => {
+  const isAuth = useSelector(state => state.auth.access_token)
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    isAuth&&navigate('/')
+  }, [isAuth, navigate])
+  
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -20,17 +27,6 @@ const Login = () => {
       email: form.elements.email.value,
       password: form.elements.password.value,
     }
-
-    // logIn({
-    //     email: email,
-    //     password: password,
-    // }).then(() => {
-    //   console.log("logged in")
-    //   Notiflix.Report.success("Success!", "You are now logged in!", "Okay!")})
-    //  .catch((error) => {
-    //    console.log("Error details:", error);
-    //    Notiflix.Report.failure("Oops!", "Something went wrong! Try logging in again", "Okay!")
-    // });
 
     dispatch(loginThunk(loggedInUser))
     .then(() => {
