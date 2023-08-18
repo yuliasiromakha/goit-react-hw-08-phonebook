@@ -1,12 +1,13 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes, NavLink } from "react-router-dom";
 import "./general.css";
-import UserMenu from "./pages/UserMenu";
+// import UserMenu from "./pages/UserMenu";
 
 export const App = () => {
   const Home = lazy(() => import('./pages/Home'));
   const Login = lazy(() => import('./pages/Login'));
   const Registration = lazy(() => import('./pages/Registration'));
+  const UserMenu = lazy(() => import('./pages/UserMenu'));
   const NotFound = lazy(() => import('./pages/NotFound'));
 
   return (
@@ -30,7 +31,7 @@ export const App = () => {
 
     <Suspense fallback={<h1 style={{marginLeft: 25, marginTop: 30, fontSize: 25}}>Loading...</h1>}>
       <Routes>
-       <Route path="/" element={<Home />} >
+       <Route path="/" element={<UserMenu />} >
          <Route index element={<Home/>} />
          <Route path="login" element={<Login />} />
          <Route path="registration" element={<Registration />} />
