@@ -6,7 +6,6 @@ import '../general.css'
 import Notiflix from 'notiflix';
 import { loginThunk } from "components/redux/auth/thunk";
 import { useDispatch, useSelector } from "react-redux";
-// import { getProfileThunk } from "components/redux/auth/thunk";
 
 const Login = () => {
   const isAuth = useSelector(state => state.auth.access_token)

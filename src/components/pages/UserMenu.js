@@ -15,10 +15,11 @@ const UserMenu = () => {
         navigate('/login')
     }
 
-    const handleLogout = () => { 
-        deleteToken();
-        dispatch(logOutThunk());
-        navigate('/login')
+    const handleLogout = async () => { 
+        await dispatch(logOutThunk()); 
+        deleteToken(); 
+        navigate('/login');
+        console.log('logged out');
     };
     
     

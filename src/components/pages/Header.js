@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import UserMenu from "./UserMenu";
 import '../general.css'
 
@@ -22,6 +22,7 @@ const Header = () => {
           <UserMenu />
         </div>
       </nav>
+      <Outlet/>
     </div>
     )
 }

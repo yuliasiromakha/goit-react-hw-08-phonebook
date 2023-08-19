@@ -35,8 +35,6 @@ const handleFulfilledLogout = (state) => {
   state.error = '';
   state.token = '';
   state.user = null;
-
-  console.log(state.token);
 };
 
 
