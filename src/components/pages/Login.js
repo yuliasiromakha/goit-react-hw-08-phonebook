@@ -4,7 +4,7 @@ import Button from '@mui/joy/Button';
 import { Link, useNavigate } from "react-router-dom";
 import '../general.css'
 import Notiflix from 'notiflix';
-import { loginThunk } from "components/redux/auth/thunk";
+import { loginThunk } from "components/pages/redux/auth/thunk";
 import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
@@ -27,10 +27,12 @@ const Login = () => {
       password: form.elements.password.value,
     }
 
-    dispatch(loginThunk(loggedInUser))
+    dispatch(loginThunk(loggedInUser)).unwrap()
     .then(() => {
       console.log("logged in")
-      Notiflix.Report.success("Success!", "You are now logged in!", "Okay!")})
+      Notiflix.Report.success("Success!", "You are now logged in!", "Okay!")
+      navigate('/contacts') 
+    })
     .catch((error) => {
        console.log("Error details:", error);
        Notiflix.Report.failure("Oops!", "Something went wrong! Try logging in again", "Okay!")

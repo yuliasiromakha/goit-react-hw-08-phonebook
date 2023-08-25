@@ -1,3 +1,4 @@
+// authSlice.js
 import { getProfileThunk, logOutThunk, loginThunk } from "./thunk";
 
 const { createSlice, isAnyOf } = require("@reduxjs/toolkit");
@@ -17,6 +18,7 @@ const handleFulfilled = (state, {payload}) => {
   state.error = '';
   state.token = payload.token
   state.user = payload.user.name
+  state.userEmail = payload.user.email
 
 }
 const handleRejected = (state, {payload}) => {

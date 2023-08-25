@@ -1,3 +1,4 @@
+// operations.js
 import axios from 'axios';
 
 const instance = axios.create({
@@ -5,7 +6,7 @@ const instance = axios.create({
 })
 
 export const setToken = (token) => { 
-    instance.defaults.headers.common['Authorization'] = token
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
 
 export const deleteToken = () => { 

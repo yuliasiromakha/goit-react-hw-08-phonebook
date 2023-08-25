@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./general.css";
+import PrivateRoute from "PrivateRoute/PrivateRoute";
 
 export const App = () => {
   const Home = lazy(() => import('./pages/Home'));
@@ -8,6 +9,7 @@ export const App = () => {
   const Registration = lazy(() => import('./pages/Registration'));
   const NotFound = lazy(() => import('./pages/NotFound'));
   const Header = lazy(() => import('./pages/Header'));
+  const Contacts = lazy(() => import('./pages/Contacts'));
 
   return (
 
@@ -19,6 +21,11 @@ export const App = () => {
           <Route path="login" element={<Login/>}/>
           <Route path="registration" element={<Registration/>}/>
           <Route path="*" element={<NotFound />} />
+          <Route path="contacts" element={
+            <PrivateRoute>
+              <Contacts/>
+            </PrivateRoute>
+          } />
         </Route>
       </Routes>
 

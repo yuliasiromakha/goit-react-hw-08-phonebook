@@ -1,8 +1,10 @@
-// ContactForm/ContactForm.js
+// ContactForm.js
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import PhonebookTitle from '../PhonebookTitle';
-import { addContactAsync } from 'redux/contactSlice';
+import PhonebookTitle from "../PhonebookTitle/PhonebookTitle";
+import { addContactAsync } from "components/pages/redux/auth/contacts/contactSlice";
+import Input from '@mui/joy/Input';
+import Button from '@mui/joy/Button';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -47,38 +49,42 @@ const ContactForm = () => {
       name,
       number,
     };
-
-    dispatch(addContactAsync(contact));
+    
+    const token = ''
+    dispatch(addContactAsync(contact, token));
     setName("");
     setNumber("");
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmitForm}>
+    <div className="contact_form">
+      <form onSubmit={onSubmitForm} className="form">
         <PhonebookTitle
           title="Name"
           styles={{
-            fontSize: 15,
+            fontSize: 20,
             marginBottom: 0,
           }}
         />
-        <input
+        
+        <Input  
+          color="neutral" size="md" variant="solid"
           type="text"
           name="name"
           value={name}
           onChange={handleInputChange}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          required
-        />
+          required/>
+
         <PhonebookTitle
           title="Phone number"
           styles={{
-            fontSize: 15,
+            fontSize: 20,
             marginBottom: 0,
           }}
         />
-        <input
+        <Input
+          color="neutral" size="md" variant="solid"
           type="tel"
           name="number"
           value={number}
@@ -86,9 +92,8 @@ const ContactForm = () => {
           pattern="\\+?\\d{1,4}?[ .-]?\\(?\d{1,3}(\))?([ .-]?)\d{1,4}([ .-]?)\d{1,4}([ .-]?)\d{1,9}"
           required
         />
-        <button type="submit" className="add-contact__button">
-          Add Contact
-        </button>
+
+        <Button color="neutral" type='submit' style={{marginTop: 15}}>Add Contact</Button>
       </form>
     </div>
   );

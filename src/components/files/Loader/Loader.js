@@ -2,8 +2,7 @@ import React from "react";
 import { Audio } from 'react-loader-spinner';
 
 const Loader = () => {
-  return (
-    <Audio
+  return <Audio
   height="70"
   width="70"
   radius="9"
@@ -11,7 +10,6 @@ const Loader = () => {
   ariaLabel="loading"
   wrapperStyle
 />
-  )
 };
 
 export default Loader;
