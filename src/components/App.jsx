@@ -1,15 +1,15 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./general.css";
-import PrivateRoute from "PrivateRoute/PrivateRoute";
+import PrivateRoute from "components/PrivateRoute/PrivateRoute";
 
 export const App = () => {
-  const Home = lazy(() => import('./pages/Home'));
-  const Login = lazy(() => import('./pages/Login'));
-  const Registration = lazy(() => import('./pages/Registration'));
-  const NotFound = lazy(() => import('./pages/NotFound'));
-  const Header = lazy(() => import('./pages/Header'));
-  const Contacts = lazy(() => import('./pages/Contacts'));
+  const Home = lazy(() => import('./pages/HomePage'));
+  const Login = lazy(() => import('./pages/LoginPage'));
+  const Registration = lazy(() => import('./pages/RegistrationPage'));
+  const NotFound = lazy(() => import('./NotFound'));
+  const Header = lazy(() => import('./Header'));
+  const Contacts = lazy(() => import('./pages/ContactsPage'));
 
   return (
 

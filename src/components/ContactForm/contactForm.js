@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PhonebookTitle from "../PhonebookTitle/PhonebookTitle";
-import { addContactAsync } from "components/pages/redux/auth/contacts/contactSlice";
+import { addContactAsync } from "components/redux/contacts/contactSlice";
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 

@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteContactAsync } from "components/pages/redux/auth/contacts/contactSlice";
+import { deleteContactAsync } from "components/redux/contacts/contactSlice";
 import Button from '@mui/joy/Button';
 
 const ContactList = () => {

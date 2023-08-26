@@ -1,9 +1,9 @@
-import { deleteToken } from "components/pages/redux/auth/operations";
-import { logOutThunk } from "components/pages/redux/auth/thunk";
+import { deleteToken } from "components/redux/auth/operations";
+import { logOutThunk } from "components/redux/auth/thunk";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import "../general.css"
+import "./general.css"
 import Button from '@mui/joy/Button';
 import Notiflix from 'notiflix';
 

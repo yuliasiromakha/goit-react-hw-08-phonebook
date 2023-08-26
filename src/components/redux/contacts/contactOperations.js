@@ -1,6 +1,6 @@
 // contactOperations.js
 import axios from 'axios';
-import { setToken } from '../operations';
+import { setToken } from '../auth/operations';
 
 const instance = axios.create({
     baseURL: 'https://connections-api.herokuapp.com/',
@@ -15,7 +15,7 @@ export const createContact = async (body) => {
         console.log('data =>', data);
         console.log('data access token => ', data.access_token);
 
-        setToken(`Bearer ${ data.access_token}`)
+        setToken(`Bearer ${data.access_token}`)
 
         return data;
     } catch (error) {

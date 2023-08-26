@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import UserMenu from "./UserMenu";
-import '../general.css'
+import './general.css'
 
 const Header = () => {
     return (
