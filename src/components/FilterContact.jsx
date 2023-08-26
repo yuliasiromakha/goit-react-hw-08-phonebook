@@ -2,8 +2,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Input from '@mui/joy/Input';
-import PhonebookTitle from "../PhonebookTitle/PhonebookTitle";
-import { setFilter } from "components/redux/contacts/filterSlice";
+import PhonebookTitle from "./PhonebookTitle";
+import { setFilter } from "redux/contacts/filterSlice";
 
 const FilterContact = () => {
   const dispatch = useDispatch();

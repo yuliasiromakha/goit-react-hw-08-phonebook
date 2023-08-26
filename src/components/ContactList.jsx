@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteContactAsync } from "components/redux/contacts/contactSlice";
+import { deleteContactAsync } from "redux/contacts/contactSlice";
 import Button from '@mui/joy/Button';
 
 const ContactList = () => {
@@ -11,7 +11,6 @@ const ContactList = () => {
   const filter = useSelector((state) => state.filter.filter);
 
   console.log('contacts:', contacts); 
-  console.log('error => ', error);
 
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter)

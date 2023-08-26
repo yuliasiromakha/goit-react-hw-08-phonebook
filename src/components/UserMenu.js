@@ -1,5 +1,5 @@
-import { deleteToken } from "components/redux/auth/authOperations";
-import { logOutThunk } from "components/redux/auth/authThunk";
+import { deleteToken } from "redux/auth/authOperations";
+import { logOutThunk } from "redux/auth/authThunk";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -20,8 +20,8 @@ const UserMenu = () => {
         dispatch(logOutThunk()); 
         deleteToken(); 
         navigate('/login');
-        console.log('logged out');
         Notiflix.Report.success("Success!", "You are now logged out!", "Okay!")
+        console.log('logged out');
     };
 
     return (
@@ -31,7 +31,7 @@ const UserMenu = () => {
                     <p className="welcome_text">Welcome, {userName}!</p>
                     <p className="welcome_text">{userEmail}</p>
                     <Button color="neutral" type='button' onClick={userName ? handleLogout : handleLogin} style={{height: 20, width: 120}}>
-                        {userName ? 'Logout' : 'Login'}
+                        Logout
                     </Button>
                 </div>
             )}

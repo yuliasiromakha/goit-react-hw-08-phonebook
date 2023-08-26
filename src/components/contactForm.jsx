@@ -1,8 +1,8 @@
 // ContactForm.js
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import PhonebookTitle from "../PhonebookTitle/PhonebookTitle";
-import { addContactAsync } from "components/redux/contacts/contactSlice";
+import PhonebookTitle from "./PhonebookTitle";
+import { addContactAsync } from "redux/contacts/contactSlice";
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 

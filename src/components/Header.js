@@ -18,7 +18,6 @@ const Header = () => {
             <NavLink to="/login">Log in</NavLink>
           </li>
           <li className="header__nav-item">
-            {/* {token && (<NavLink to="/contacts">Contacts</NavLink>)} */}
             <NavLink to="/contacts">Contacts</NavLink>
           </li>
         </ul>

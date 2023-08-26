@@ -2,9 +2,9 @@ import React from "react";
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 import { Link, useNavigate } from "react-router-dom";
-import '../general.css'
+import '../components/general.css'
 import Notiflix from 'notiflix';
-import { loginThunk } from "components/redux/auth/authThunk";
+import { loginThunk } from "redux/auth/authThunk";
 import { useDispatch } from "react-redux";
 
 const Login = () => {
@@ -36,7 +36,7 @@ const Login = () => {
       navigate('/contacts') 
     })
     .catch((error) => {
-       console.log("Error details:", error);
+      //  console.log("Error details:", error);
        Notiflix.Report.failure("Oops!", "Something went wrong! Try logging in again", "Okay!")
     });
 
