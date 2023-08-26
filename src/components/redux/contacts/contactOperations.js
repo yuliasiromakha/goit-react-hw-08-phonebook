@@ -25,21 +25,14 @@ export const createContact = async (body) => {
 };
 
 export const deleteContact = async (contactId, token) => {
-    // const { data } = await instance.delete(`/contacts/${contactId}`, {
-    //     headers: {
-    //         Authorization: `Bearer ${token}`,
-    //     },
-    // });
-    // console.log('deleteContact data =>', data);
-    // return data;
-
     const { data } = await instance.delete(`/contacts/${contactId}`, {
         headers: {
-          Authorization: token, 
+            Authorization: `Bearer ${token}`,
         },
-      });
-      console.log('deleteContact data =>', data);
-      return data;
+    });
+    console.log('deleteContact data =>', data);
+    return data;
+
 };
 
 

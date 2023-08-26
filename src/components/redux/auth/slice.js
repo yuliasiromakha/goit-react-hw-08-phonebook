@@ -4,10 +4,12 @@ import { getProfileThunk, logOutThunk, loginThunk } from "./thunk";
 const { createSlice, isAnyOf } = require("@reduxjs/toolkit");
 
 const initialState = {
-  access_token: "",
+  token: "",
   isLoading: false,
   error: "",
   profile: null,
+  user: null, 
+  userEmail: null  
 }
 
 const handlePending = (state, {payload}) => {
@@ -37,8 +39,8 @@ const handleFulfilledLogout = (state) => {
   state.error = '';
   state.token = '';
   state.user = null;
+  state.userEmail = null;
 };
-
 
 const authSlice = createSlice({
   name: "auth",

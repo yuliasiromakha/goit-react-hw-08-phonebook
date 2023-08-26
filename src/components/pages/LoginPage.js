@@ -1,20 +1,23 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 import { Link, useNavigate } from "react-router-dom";
 import '../general.css'
 import Notiflix from 'notiflix';
 import { loginThunk } from "components/redux/auth/thunk";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
-  const isAuth = useSelector(state => state.auth.access_token)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    isAuth&&navigate('/')
-  }, [isAuth, navigate])
+  // useEffect(() => {
+  //   if (isAuth) {
+  //     navigate('/');
+  //   } else {
+  //     navigate('/login');
+  //   }
+  // }, [isAuth, navigate]);
   
 
   const handleSubmit = e => {
