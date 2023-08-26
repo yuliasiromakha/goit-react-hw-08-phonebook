@@ -4,7 +4,7 @@ import Button from '@mui/joy/Button';
 import { Link, useNavigate } from "react-router-dom";
 import '../general.css'
 
-import { signUp } from "components/redux/auth/operations";
+import { signUp } from "components/redux/auth/authOperations";
 import Notiflix from 'notiflix';
 
 const Registration = () => {

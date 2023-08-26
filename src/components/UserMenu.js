@@ -1,5 +1,5 @@
-import { deleteToken } from "components/redux/auth/operations";
-import { logOutThunk } from "components/redux/auth/thunk";
+import { deleteToken } from "components/redux/auth/authOperations";
+import { logOutThunk } from "components/redux/auth/authThunk";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";

@@ -1,6 +1,6 @@
 // contactOperations.js
 import axios from 'axios';
-import { setToken } from '../auth/operations';
+import { setToken } from '../auth/authOperations';
 
 const instance = axios.create({
     baseURL: 'https://connections-api.herokuapp.com',

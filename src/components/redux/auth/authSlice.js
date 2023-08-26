@@ -1,5 +1,5 @@
 // authSlice.js
-import { getProfileThunk, logOutThunk, loginThunk } from "./thunk";
+import { getProfileThunk, logOutThunk, loginThunk } from "./authThunk";
 
 const { createSlice, isAnyOf } = require("@reduxjs/toolkit");
 

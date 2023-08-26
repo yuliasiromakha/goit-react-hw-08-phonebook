@@ -4,7 +4,7 @@ import Button from '@mui/joy/Button';
 import { Link, useNavigate } from "react-router-dom";
 import '../general.css'
 import Notiflix from 'notiflix';
-import { loginThunk } from "components/redux/auth/thunk";
+import { loginThunk } from "components/redux/auth/authThunk";
 import { useDispatch } from "react-redux";
 
 const Login = () => {

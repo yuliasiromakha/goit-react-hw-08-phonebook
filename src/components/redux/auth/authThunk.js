@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getProfile, logIn, logOut, setToken, deleteToken } from "./operations";
+import { getProfile, logIn, logOut, setToken, deleteToken } from "./authOperations";
 
 export const loginThunk = createAsyncThunk("auth/login", async (body, { dispatch }) => {
     const data = await logIn(body)
