@@ -23,11 +23,6 @@ const UserMenu = () => {
         console.log('logged out');
         Notiflix.Report.success("Success!", "You are now logged out!", "Okay!")
     };
-    
-    
-    // useEffect(() => {
-    //   token && dispatch(getProfileThunk())
-    // }, [token, dispatch] )
 
     return (
         <div>

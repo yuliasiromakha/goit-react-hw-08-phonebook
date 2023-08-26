@@ -14,18 +14,32 @@ export const deleteToken = () => {
 }
 
 export const signUp = async (body) => {
-    return await instance.post('users/signup', body)
+    const { data } = await instance.post('users/signup', body)
+    setToken(`Bearer ${data.token}`)
+    return data;
 }
 
 export const logIn = async (body) => {
-    const {data} = await instance.post('users/login', body)
-    setToken(`Bearer ${data.access_token}`)
-    return data
+    try {
+        const { data } = await instance.post('users/login', body);
+        
+        if (data.token) {
+            setToken(`Bearer ${data.token}`);
+        } else {
+            console.log('No token received from backend.');
+        }
+        
+        return data;
+    } catch (error) {
+        console.error('Login error:', error);
+        throw error;
+    }
 }
 
 export const getProfile = async () => {
     const {data} = await instance.get('/users/current')
     console.log('getProfle data =>', data);
+    setToken(`Bearer ${data.token}`);
     return data 
 }
 
