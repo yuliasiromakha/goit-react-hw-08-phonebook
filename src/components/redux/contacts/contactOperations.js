@@ -3,7 +3,7 @@ import axios from 'axios';
 import { setToken } from '../auth/operations';
 
 const instance = axios.create({
-    baseURL: 'https://connections-api.herokuapp.com/',
+    baseURL: 'https://connections-api.herokuapp.com',
 });
 
 export const createContact = async (body) => {
@@ -13,9 +13,9 @@ export const createContact = async (body) => {
 
         const { data } = await instance.post('/contacts', body);
         console.log('data =>', data);
-        console.log('data access token => ', data.access_token);
+        console.log('data token => ', data.token);
 
-        setToken(`Bearer ${data.access_token}`)
+        setToken(`Bearer ${data.token}`)
 
         return data;
     } catch (error) {
