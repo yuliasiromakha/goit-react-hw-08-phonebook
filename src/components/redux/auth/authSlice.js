@@ -19,7 +19,7 @@ const handleFulfilled = (state, {payload}) => {
   state.isLoading = false;
   state.error = '';
   state.token = payload.token
-  state.profile = payload.user
+  state.profile = payload
   state.userName = payload.user.name
   state.userEmail = payload.user.email
 
