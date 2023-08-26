@@ -31,8 +31,8 @@ const handleRejected = (state, { error }) => {
 
 export const addContactAsync = createAsyncThunk(
   "contacts/addContact",
-  async (contactData) => {
-    return await createContact(contactData); 
+  async ({ contact, token }) => {
+    return await createContact(contact, token);
   }
 );
 

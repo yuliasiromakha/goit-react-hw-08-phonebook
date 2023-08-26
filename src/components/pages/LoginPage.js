@@ -29,7 +29,6 @@ const Login = () => {
 
     dispatch(loginThunk(loggedInUser)).unwrap()
     .then(() => {
-      console.log("logged in")
       Notiflix.Report.success("Success!", "You are now logged in!", "Okay!")
       navigate('/contacts') 
     })

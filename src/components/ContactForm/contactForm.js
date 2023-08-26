@@ -21,7 +21,7 @@ const ContactForm = () => {
     }
   };
 
-  const onSubmitForm = (event) => {
+  const onSubmitForm = (event, token) => {
     event.preventDefault();
 
     const contactExists = contacts.some((contact) => contact.name === name.toLowerCase());
@@ -50,7 +50,6 @@ const ContactForm = () => {
       number,
     };
     
-    const token = ''
     dispatch(addContactAsync(contact, token));
     setName("");
     setNumber("");
