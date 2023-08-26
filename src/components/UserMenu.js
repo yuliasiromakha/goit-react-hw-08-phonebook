@@ -8,7 +8,7 @@ import Button from '@mui/joy/Button';
 import Notiflix from 'notiflix';
 
 const UserMenu = () => {
-    const { user, userEmail} = useSelector((state) => state.auth);
+    const { profile, userName, userEmail} = useSelector((state) => state.auth);
     const navigate = useNavigate(); 
     const dispatch = useDispatch();
 
@@ -26,12 +26,12 @@ const UserMenu = () => {
 
     return (
         <div>
-            {user && (
+            {profile && (
                 <div className="logout_section">
-                    <p className="welcome_text">Welcome, {user}!</p>
+                    <p className="welcome_text">Welcome, {userName}!</p>
                     <p className="welcome_text">{userEmail}</p>
-                    <Button color="neutral" type='button' onClick={user ? handleLogout : handleLogin} style={{height: 20, width: 120}}>
-                        {user ? 'Logout' : 'Login'}
+                    <Button color="neutral" type='button' onClick={userName ? handleLogout : handleLogin} style={{height: 20, width: 120}}>
+                        {userName ? 'Logout' : 'Login'}
                     </Button>
                 </div>
             )}

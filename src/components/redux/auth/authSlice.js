@@ -8,7 +8,7 @@ const initialState = {
   isLoading: false,
   error: "",
   profile: null,
-  user: null, 
+  userName: null, 
   userEmail: null  
 }
 
@@ -19,7 +19,8 @@ const handleFulfilled = (state, {payload}) => {
   state.isLoading = false;
   state.error = '';
   state.token = payload.token
-  state.user = payload.user.name
+  state.profile = payload.user
+  state.userName = payload.user.name
   state.userEmail = payload.user.email
 
 }
@@ -38,9 +39,11 @@ const handleFulfilledLogout = (state) => {
   state.isLoading = false;
   state.error = '';
   state.token = '';
-  state.user = null;
+  state.userName = null;
   state.userEmail = null;
+  state.profile = null; 
 };
+
 
 const authSlice = createSlice({
   name: "auth",
