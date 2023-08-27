@@ -45,7 +45,7 @@ export const getProfile = async () => {
 
 export const logOut = async (body) => {
     const {data} = await instance.post('/users/logout', body)
-    setToken(data.token)
+    deleteToken(data.token)
     console.log('logOut data =>', data);
     return data
 }

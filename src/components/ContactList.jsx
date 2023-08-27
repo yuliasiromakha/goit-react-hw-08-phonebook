@@ -7,10 +7,13 @@ import Button from '@mui/joy/Button';
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const { items: contacts, error } = useSelector((state) => state.contacts);
+  const contacts = useSelector((state) => state.contacts.contacts);
+  const error = useSelector((state) => state.contacts.error);
   const filter = useSelector((state) => state.filter.filter);
 
-  // console.log('contacts:', contacts); 
+  console.log('contacts:', contacts); 
+  console.log('error:', error);
+  console.log('filter:', filter);
 
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter)

@@ -1,10 +1,6 @@
 // contactOperations.js
 import { instance } from '../auth/authOperations';
 
-// const instance = axios.create({
-//     baseURL: 'https://connections-api.herokuapp.com',
-// });
-
 export const createContact = async () => {
     try {
         console.log('this is createContact');
