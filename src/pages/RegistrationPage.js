@@ -3,11 +3,12 @@ import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 import { Link } from "react-router-dom";
 import '../components/general.css'
-import { signUp } from "redux/auth/authOperations";
+import { signUpThunk } from "redux/auth/authThunk";
 import Notiflix from 'notiflix';
+import { useDispatch } from "react-redux";
 
 const Registration = () => {
-
+    const dispatch = useDispatch()
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.currentTarget;
@@ -17,7 +18,7 @@ const Registration = () => {
             password: form.elements.password.value,
         }
         
-        signUp(newUser)
+        dispatch(signUpThunk(newUser))
         .then(() => {
             console.log("account created")
             Notiflix.Report.success("Success!", "Your account was successfully created!", "Okay!")

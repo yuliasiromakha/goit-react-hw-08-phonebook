@@ -1,5 +1,5 @@
 // authSlice.js
-import { getProfileThunk, logOutThunk, loginThunk } from "./authThunk";
+import { getProfileThunk, logOutThunk, loginThunk, signUpThunk } from "./authThunk";
 
 const { createSlice, isAnyOf } = require("@reduxjs/toolkit");
 
@@ -55,6 +55,7 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+    .addCase(signUpThunk.fulfilled, handleFulfilled)
     .addCase(loginThunk.fulfilled, handleFulfilled)
     .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
     .addCase(logOutThunk.fulfilled, handleFulfilledLogout)
