@@ -5,6 +5,7 @@ export const createContact = async () => {
     try {
         console.log('this is createContact');
         const { data } = await instance.post('/contacts');
+        // після цього запиту логіка ламається: 400 (Bad Request)
         console.log('data =>', data);
 
         return data;

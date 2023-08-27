@@ -36,8 +36,8 @@ export const logIn = async (body) => {
     }
 }
 
-export const getProfile = async () => {
-    const {data} = await instance.get('/users/current')
+export const getProfile = async (body) => {
+    const {data} = await instance.get('/users/current', body)
     console.log('getProfle data =>', data);
     setToken(data.token)
     return data 

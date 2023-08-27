@@ -11,10 +11,6 @@ const ContactList = () => {
   const error = useSelector((state) => state.contacts.error);
   const filter = useSelector((state) => state.filter.filter);
 
-  console.log('contacts:', contacts); 
-  console.log('error:', error);
-  console.log('filter:', filter);
-
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter)
   );
@@ -26,6 +22,7 @@ const ContactList = () => {
   if (error) {
     return error;
   }
+  console.log('contacts:', contacts); 
 
   return (
     <ul
