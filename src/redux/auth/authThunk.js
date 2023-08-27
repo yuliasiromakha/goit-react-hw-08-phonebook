@@ -32,6 +32,7 @@
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getProfile, logIn, logOut, setToken, deleteToken } from "./authOperations";
+import { privateInstance } from "./authOperations";
 
 export const loginThunk = createAsyncThunk("auth/login", async (body, { dispatch }) => {
     const data = await logIn(body)
@@ -58,3 +59,12 @@ export const logOutThunk = createAsyncThunk("auth/logout", async (_, { getState 
         deleteToken(); 
     }
 });
+
+export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+    try {
+      const { data } = await privateInstance.get('/users/current');
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  });

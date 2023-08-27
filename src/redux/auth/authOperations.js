@@ -1,27 +1,30 @@
 // operations.js
 import axios from 'axios';
 
-export const instance = axios.create({
+export const publicInstance = axios.create({
+    baseURL: 'https://connections-api.herokuapp.com/',
+})
+export const privateInstance = axios.create({
     baseURL: 'https://connections-api.herokuapp.com/',
 })
 
 export const setToken = (token) => { 
-    instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+    privateInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
 
 export const deleteToken = () => { 
-    delete instance.defaults.headers.common['Authorization'];
+    delete privateInstance.defaults.headers.common['Authorization'];
 }
 
 export const signUp = async (body) => {
-    const { data } = await instance.post('users/signup', body)
+    const { data } = await publicInstance.post('users/signup', body)
     setToken(data.token)
     return data;
 }
 
 export const logIn = async (body) => {
     try {
-        const { data } = await instance.post('users/login', body);
+        const { data } = await publicInstance.post('users/login', body);
         
         if (data.token) {
             setToken(data.token)
@@ -37,14 +40,14 @@ export const logIn = async (body) => {
 }
 
 export const getProfile = async () => {
-    const {data} = await instance.get('/users/current')
+    const {data} = await privateInstance.get('/users/current')
     console.log('getProfle data =>', data);
     setToken(data.token)
     return data 
 }
 
 export const logOut = async (body) => {
-    const {data} = await instance.post('/users/logout', body)
+    const {data} = await privateInstance.post('/users/logout', body)
     setToken(data.token)
     console.log('logOut data =>', data);
     // setToken(`Bearer ${data.token}`);

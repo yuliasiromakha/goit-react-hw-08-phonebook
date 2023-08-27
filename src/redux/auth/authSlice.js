@@ -9,7 +9,8 @@ const initialState = {
   error: "",
   profile: null,
   userName: null, 
-  userEmail: null  
+  userEmail: null,  
+  isLoggedIn: null,
 }
 
 const handlePending = (state, {payload}) => {
@@ -22,6 +23,7 @@ const handleFulfilled = (state, {payload}) => {
   state.profile = payload
   state.userName = payload.user.name
   state.userEmail = payload.user.email
+  state.isLoggedIn = true;
 
 }
 const handleRejected = (state, {payload}) => {
@@ -33,6 +35,7 @@ const handleFulfilledProfile = (state, { payload }) => {
   state.isLoading = false;
   state.error = '';
   state.profile = payload;
+  state.isLoggedIn = true;
 };
 
 const handleFulfilledLogout = (state) => { 
@@ -42,6 +45,7 @@ const handleFulfilledLogout = (state) => {
   state.userName = null;
   state.userEmail = null;
   state.profile = null; 
+  state.isLoggedIn = false;
 };
 
 
