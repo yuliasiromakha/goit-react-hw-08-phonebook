@@ -1,5 +1,5 @@
 // contactOperations.js
-import { privateInstance } from '../auth/authOperations';
+import { instance } from '../auth/authOperations';
 
 // const instance = axios.create({
 //     baseURL: 'https://connections-api.herokuapp.com',
@@ -8,7 +8,7 @@ import { privateInstance } from '../auth/authOperations';
 export const createContact = async () => {
     try {
         console.log('this is createContact');
-        const { data } = await privateInstance.post('/contacts');
+        const { data } = await instance.post('/contacts');
         console.log('data =>', data);
 
         return data;
@@ -19,7 +19,7 @@ export const createContact = async () => {
 };
 
 export const deleteContact = async (contactId, token) => {
-    const { data } = await privateInstance.delete(`/contacts/${contactId}`, {
+    const { data } = await instance.delete(`/contacts/${contactId}`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -30,6 +30,6 @@ export const deleteContact = async (contactId, token) => {
 };
 
 export const getContact = async (body) => {
-    const { data } = await privateInstance.get('/contacts', body);
+    const { data } = await instance.get('/contacts', body);
     return data;
 };

@@ -16,7 +16,6 @@ export const App = () => {
   const Header = lazy(() => import('./Header'));
   const Contacts = lazy(() => import('../pages/ContactsPage'));
 
-  // const isAuth = useSelector(state => state.auth.token)
   const { isRefreshing } = useAuth();
   const dispatch = useDispatch();
 
@@ -27,7 +26,6 @@ export const App = () => {
   return isRefreshing ? (
     <Loader/>
   ) : (
-    // <Suspense fallback={<h1 style={{marginLeft: 25, marginTop: 30, fontSize: 25}}>Loading...</h1>}>
     <Suspense fallback={<Loader/>}>
 
     <Routes>
