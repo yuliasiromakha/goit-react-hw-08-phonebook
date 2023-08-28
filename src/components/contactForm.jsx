@@ -96,6 +96,7 @@ const ContactForm = () => {
 
         <Button color="neutral" type='submit' style={{marginTop: 15}}>Add Contact</Button>
       </form>
+
     </div>
   );
 };

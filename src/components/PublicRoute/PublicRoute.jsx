@@ -1,10 +1,12 @@
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
 
-const PublicRoute = ({children}) => {
-    const isAuth = useSelector((state) => state.auth.token)
-    const { state } = useLocation()
-    return !isAuth ? children : <Navigate to={state ? state : '/'} />
-}
+const PublicRoute = ({ children }) => {
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const { state } = useLocation();
 
-export default PublicRoute
+  return !isLoggedIn ? children : <Navigate to={state?.from || "/contacts"} />;
+};
+
+export default PublicRoute;
