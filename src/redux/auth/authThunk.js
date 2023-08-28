@@ -10,7 +10,9 @@ import {
 } from './authOperations';
 import { instance } from './authOperations';
 
-export const signUpThunk = createAsyncThunk("auth/signup", async (body, thunkAPI) => {
+export const signUpThunk = createAsyncThunk(
+  'auth/signup',
+  async (body, thunkAPI) => {
     const data = await signUp(body);
     return data;
   }
