@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Input from '@mui/joy/Input';
 import PhonebookTitle from "./PhonebookTitle";
 import { setFilter } from "redux/contacts/filterSlice";
+import { selectFilter } from "redux/selectors";
 
 const FilterContact = () => {
   const dispatch = useDispatch();
-  const filter = useSelector((state) => state.contacts.filter);
+  const filter = useSelector(selectFilter);
   const handleInputChange = (event) => {
     const { value } = event.target;
     dispatch(setFilter(value)); 

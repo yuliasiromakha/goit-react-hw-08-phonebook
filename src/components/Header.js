@@ -3,9 +3,10 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import UserMenu from "./UserMenu";
 import './general.css';
+import { selectIsLoggedIn } from "redux/selectors";
 
 const Header = () => {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <div className="header">

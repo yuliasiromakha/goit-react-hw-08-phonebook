@@ -5,12 +5,13 @@ import PhonebookTitle from "./PhonebookTitle";
 import { addContactAsync } from "redux/contacts/contactSlice";
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
+import { selectContacts } from "redux/selectors";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
-  const contacts = useSelector((state) => state.contacts.contacts);
+  const contacts = useSelector(selectContacts);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

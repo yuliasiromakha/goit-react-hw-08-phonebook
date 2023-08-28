@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContactAsync } from 'redux/contacts/contactSlice';
 import Button from '@mui/joy/Button';
+import { selectContacts, selectError, selectFilter } from 'redux/selectors';
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(selectContacts);
 
-  const error = useSelector(state => state.contacts.error);
-  const filter = useSelector(state => state.filter.filter);
+  const error = useSelector(selectError);
+  const filter = useSelector(selectFilter);
 
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter)

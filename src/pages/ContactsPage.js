@@ -5,10 +5,11 @@ import ContactForm from "components/contactForm";
 import FilterContact from "components/FilterContact";
 import ContactList from "components/ContactList";
 import Loader from "components/Loader";
+import { selectIsLoading } from "redux/selectors";
 
 const Contacts = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector((state) => state.contacts.isLoading);
+  const isLoading = useSelector(selectIsLoading);
   
   useEffect(() => {
     dispatch(getContactsThunk());

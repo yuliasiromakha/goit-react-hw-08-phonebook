@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 import "./general.css"
 import Button from '@mui/joy/Button';
 import Notiflix from 'notiflix';
+import { selectAuth } from "redux/selectors";
 
 const UserMenu = () => {
-    const { profile, userName, userEmail} = useSelector((state) => state.auth);
+    const { profile, userName, userEmail} = useSelector(selectAuth);
     const navigate = useNavigate(); 
     const dispatch = useDispatch();
 
