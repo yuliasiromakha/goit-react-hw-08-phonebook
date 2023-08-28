@@ -22,12 +22,7 @@ export const signUp = async (body) => {
 export const logIn = async (body) => {
     try {
         const { data } = await instance.post('users/login', body);
-        
-        if (data.token) {
-            setToken(data.token)
-        } else {
-            console.log('No token received from backend.');
-        }
+        setToken(data.token)
         
         return data;
     } catch (error) {
@@ -39,7 +34,7 @@ export const logIn = async (body) => {
 export const getProfile = async (body) => {
     const {data} = await instance.get('/users/current', body)
     console.log('getProfle data =>', data);
-    setToken(data.token)
+    // setToken(data.token)
     return data 
 }
 

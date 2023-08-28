@@ -15,8 +15,8 @@ const ContactList = () => {
     contact.name.toLowerCase().includes(filter)
   );
 
-  const handleDeleteContact = (id) => {
-    dispatch(deleteContactAsync(id));
+  const handleDeleteContact = (contactId) => {
+    dispatch(deleteContactAsync(contactId));
   };
 
   if (error) {

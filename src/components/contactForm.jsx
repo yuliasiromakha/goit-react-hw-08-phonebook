@@ -12,8 +12,6 @@ const ContactForm = () => {
   const [number, setNumber] = useState("");
   const contacts = useSelector((state) => state.contacts.contacts);
 
-  console.log('ContactForm contacts => ', contacts);
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     if (name === "name") {
@@ -52,9 +50,11 @@ const ContactForm = () => {
       number,
     };
     
-    dispatch(addContactAsync(contact, token));
+    dispatch(addContactAsync(contact));
     setName("");
     setNumber("");
+
+    console.log('ContactForm contacts => ', contacts);
   };
 
   return (
